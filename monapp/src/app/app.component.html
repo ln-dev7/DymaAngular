@@ -1,0 +1,44 @@
+<div>
+  <div>
+    <input [(ngModel)]="fruit" type="text">
+    <button (click)="addFruit()">Ajouter</button>
+  </div>
+  <ul>
+    <app-fruit (eventDeleteFruit)="deleteFruit($event)" [fruit]="fruit" *ngFor="let fruit of fruits"></app-fruit>
+  </ul>
+</div>
+<hr><hr>
+<input [type]="inputText" [(ngModel)]="content" />
+<p>{{ content }}</p>
+<hr />
+<ul>
+  <li *ngFor="let user of users; let i = index">
+    {{ i }} - {{ user.name }} {{ user.age }}
+  </li>
+</ul>
+
+<hr />
+<button (click)="displayButton = !displayButton">
+  {{ displayButton ? "Hide" : "Show" }}
+</button>
+<p *ngIf="displayButton">
+  {{ content }}
+</p>
+<input type="text" [(ngModel)]="color" />
+<div
+  [ngStyle]="{
+    width: '100px',
+    height: '100px',
+    backgroundColor: color
+  }"
+></div>
+<div
+  [class.myClass]="true"
+  [ngClass]="{
+    red: color === 'red',
+    green: color === 'green',
+    blue: color === 'blue'
+  }"
+></div>
+<hr />
+{{ title }}
